@@ -24,6 +24,7 @@ export default function ContactSection() {
             </div>
 
             <div className="space-y-6">
+              {/* Email Address */}
               <div className="flex items-start space-x-4">
                 <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,6 +39,37 @@ export default function ContactSection() {
                 </div>
               </div>
 
+              {/* Phone Number */}
+              <div className="flex items-start space-x-4">
+                <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-900">Phone Number</h4>
+                  <a href="tel:+8801XXXXXXXXX" className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                    +880 1XXXXXXXXX
+                  </a>
+                </div>
+              </div>
+
+              {/* WhatsApp Number */}
+              <div className="flex items-start space-x-4">
+                <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-900">WhatsApp</h4>
+                  <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                    +880 1XXXXXXXXX (Chat)
+                  </a>
+                </div>
+              </div>
+
+              {/* Location */}
               <div className="flex items-start space-x-4">
                 <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,7 +79,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-gray-900">Location</h4>
-                  <p className="text-sm text-gray-600">Bangladesh</p>
+                  <p className="text-sm text-gray-600">Gaibandha, Bangladesh</p>
                 </div>
               </div>
             </div>
