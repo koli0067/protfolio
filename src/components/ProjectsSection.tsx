@@ -1,128 +1,208 @@
+
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 
 const projects = [
   {
-    title: "BazarDor — Market Price Tracker",
+    title: "BazarDor",
+    subtitle: "Market Price Tracker",
     description:
-      "A real-time market price tracking web application where users can view daily commodity prices, track price fluctuations, and filter by categories.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Better Auth"],
+      "A market price tracking web application where users can explore commodity prices, review price changes, and filter items by category.",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Better Auth",
+    ],
     liveLink: "https://bazar-dor-app-ten.vercel.app/",
     githubLink: "https://github.com/koli/bazardor",
+    number: "01",
   },
   {
-    title: "BookVibe — Book Catalog & Wishlist",
+    title: "BookVibe",
+    subtitle: "Book Catalog & Wishlist",
     description:
-      "A feature-rich book discovery application allowing users to explore categories, manage custom reading lists, and track their wishlist items seamlessly.",
-    techStack: ["Next.js", "TypeScript", "DaisyUI", "React Toastify"],
+      "A book discovery application for exploring books, organizing reading lists, and managing wishlist items through a simple interface.",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "DaisyUI",
+      "React Toastify",
+    ],
     liveLink: "https://book-vibe-five.vercel.app/",
     githubLink: "https://github.com/koli/book-vibe",
+    number: "02",
   },
   {
-    title: "FitLog — Fitness Tracker",
+    title: "FitLog",
+    subtitle: "Fitness Tracker",
     description:
-      "An interactive exercise and daily fitness habit tracking application designed to monitor workout routines and track fitness goals effectively.",
-    techStack: ["Next.js App Router", "TypeScript", "Tailwind CSS"],
+      "A fitness tracking application designed to organize workout routines, monitor daily activity, and help users keep track of their fitness goals.",
+    techStack: [
+      "Next.js App Router",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
     liveLink: "https://fit-logo-app.vercel.app/",
     githubLink: "https://github.com/koli/fitlog",
+    number: "03",
   },
 ];
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+    <section
+      id="projects"
+      className="relative isolate overflow-hidden bg-slate-950 px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-16"
+    >
+      {/* Background Decorations */}
+      <div className="pointer-events-none absolute -left-40 top-20 -z-10 h-80 w-80 rounded-full bg-blue-600/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 bottom-10 -z-10 h-96 w-96 rounded-full bg-indigo-600/10 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl">
         {/* Section Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
-            Featured <span className="text-blue-600">Projects</span>
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-14 max-w-3xl text-center sm:mb-16"
+        >
+          <span className="inline-flex rounded-full border border-blue-400/20 bg-blue-500/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+            My Work
+          </span>
+
+          <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Featured{" "}
+            <span className="text-blue-500">Projects</span>
           </h2>
-          <div className="w-16 h-1 bg-blue-600 rounded-full mx-auto mt-3"></div>
-          <p className="mt-4 text-base text-gray-600 max-w-2xl mx-auto">
-            A selection of web development projects I have built recently.
+
+          <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-blue-500" />
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
+            A collection of projects where I put my development
+            knowledge into practice, explore new ideas, and improve
+            my problem-solving skills.
           </p>
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden group"
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.55,
+                delay: index * 0.12,
+              }}
+              whileHover={{ y: -7 }}
+              className="group flex flex-col overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/80 shadow-lg shadow-black/10 transition-colors duration-300 hover:border-blue-500/40 hover:shadow-xl hover:shadow-blue-950/30"
             >
-              {/* Project Image Placeholder Header */}
-              <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center text-blue-600 font-bold text-lg group-hover:scale-105 transition-transform duration-300">
-                  {project.title.split(" — ")[0]}
+              {/* Project Visual Header */}
+              <div className="relative flex h-48 items-center justify-center overflow-hidden border-b border-slate-800 bg-gradient-to-br from-blue-500/10 via-slate-900 to-indigo-500/10">
+                <div className="absolute inset-0 bg-blue-500/0 transition-colors duration-500 group-hover:bg-blue-500/5" />
+
+                <div className="relative flex flex-col items-center gap-3 transition-transform duration-500 group-hover:scale-105">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-400/20 bg-slate-950/80 text-blue-400 shadow-lg shadow-black/20">
+                    <FaCode size={28} />
+                  </div>
+
+                  <h3 className="text-2xl font-bold tracking-wide text-white">
+                    {project.title}
+                  </h3>
+
+                  <span className="text-sm text-slate-400">
+                    {project.subtitle}
+                  </span>
                 </div>
+
+                <span className="absolute right-5 top-4 font-mono text-sm font-semibold text-blue-400/70">
+                  {project.number}
+                </span>
               </div>
 
               {/* Project Details */}
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
-                  {project.title}
+              <div className="flex flex-grow flex-col p-6 sm:p-7">
+                <h3 className="text-xl font-bold text-white transition-colors duration-300 group-hover:text-blue-400">
+                  {project.subtitle}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">
+
+                <p className="mt-3 flex-grow text-sm leading-7 text-slate-400">
                   {project.description}
                 </p>
 
-                {/* Tech Stack Badges */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-1 text-xs font-medium text-blue-700 bg-blue-50 rounded-md border border-blue-100"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                {/* Tech Stack */}
+                <div className="mb-6 mt-6">
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
+                    Technologies
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-lg border border-blue-400/15 bg-blue-500/5 px-2.5 py-1.5 text-xs font-medium text-blue-200 transition-colors duration-300 hover:border-blue-400/40 hover:bg-blue-500/10"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Action Links */}
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                <div className="mt-auto flex items-center justify-between gap-3 border-t border-slate-800 pt-5">
                   <Link
                     href={project.liveLink}
                     target="_blank"
-                    className="text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center space-x-1"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} live demo`}
+                    className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-500"
                   >
-                    <span>Live Demo</span>
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
+                    Live Demo
+                    <FaExternalLinkAlt size={12} />
                   </Link>
 
                   <Link
                     href={project.githubLink}
                     target="_blank"
-                    className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center space-x-1"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} source code on GitHub`}
+                    className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2.5 text-sm font-semibold text-slate-300 transition-all duration-300 hover:border-blue-400/50 hover:text-white"
                   >
-                    <span>GitHub</span>
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                      />
-                    </svg>
+                    <FaGithub size={17} />
+                    GitHub
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.article>
           ))}
         </div>
+
+        {/* Bottom Message */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-14 rounded-3xl border border-blue-400/20 bg-gradient-to-r from-blue-500/10 via-slate-900 to-indigo-500/10 px-6 py-8 text-center sm:mt-16 sm:px-10 sm:py-10"
+        >
+          <h3 className="text-2xl font-bold text-white sm:text-3xl">
+            Every Project Is a Learning Experience
+          </h3>
+
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg">
+            Each project helps me practice new concepts, learn from
+            challenges, and take another step toward becoming a
+            Full-Stack Developer.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

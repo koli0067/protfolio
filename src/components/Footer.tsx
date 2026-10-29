@@ -1,78 +1,173 @@
-import Link from "next/link";
 
-const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaArrowUp,
+  FaHeart,
+} from "react-icons/fa";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  const links = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer className="bg-white border-t border-gray-100 py-12">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          
-          {/* Brand Logo & Tagline */}
-          <div className="text-center md:text-left">
-            <Link
+    <footer className="relative overflow-hidden bg-slate-950 text-white">
+      {/* Background Decoration */}
+      <div className="pointer-events-none absolute -left-32 -top-32 h-80 w-80 rounded-full bg-blue-600/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
+        {/* Main Footer Content */}
+        <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-16 lg:py-20">
+          {/* Brand */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <a
               href="#home"
-              className="text-2xl font-bold text-blue-600 tracking-tight hover:opacity-90 transition-opacity"
+              className="text-4xl font-extrabold tracking-tight"
             >
-              Koli<span className="text-gray-800">.</span>
-            </Link>
-            <p className="mt-1 text-sm text-gray-500">
-              Frontend Web Developer | React & Next.js Specialist
+              Koli<span className="text-blue-500">.</span>
+            </a>
+
+            <p className="mt-5 max-w-sm text-base leading-8 text-slate-400">
+              Hi, I&apos;m Koli Khatun, a Frontend Developer passionate
+              about creating modern, responsive, and user-friendly web
+              applications. My goal is to grow as a Full-Stack Developer
+              and build meaningful digital experiences.
             </p>
-          </div>
 
-          {/* Quick Navigation Links */}
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600 font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="hover:text-blue-600 transition-colors"
+            <div className="mt-7 flex gap-4">
+              <a
+                href="https://github.com/KothaKoli"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700 text-xl text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-600 hover:text-white"
               >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+                <FaGithub />
+              </a>
 
-          {/* Social Links */}
-          <div className="flex items-center space-x-4">
-            {/* GitHub */}
+              <a
+                href="https://www.linkedin.com/in/most-koli-khatun-50b804427/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700 text-xl text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-600 hover:text-white"
+              >
+                <FaLinkedinIn />
+              </a>
+
+              <a
+                href="#contact"
+                aria-label="Contact"
+                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700 text-xl text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-600 hover:text-white"
+              >
+                <FaEnvelope />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Navigation */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <h3 className="text-xl font-bold sm:text-2xl">
+              Quick Links
+            </h3>
+
+            <div className="mt-4 h-1 w-14 rounded-full bg-blue-500" />
+
+            <ul className="mt-7 space-y-4">
+              {links.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex items-center gap-3 text-base text-slate-400 transition-all duration-300 hover:translate-x-1 hover:text-blue-400"
+                  >
+                    <span className="text-blue-500">→</span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-xl font-bold sm:text-2xl">
+              Let&apos;s Work Together
+            </h3>
+
+            <div className="mt-4 h-1 w-14 rounded-full bg-blue-500" />
+
+            <p className="mt-7 text-base leading-8 text-slate-400">
+              I&apos;m always interested in learning, collaborating, and
+              exploring new opportunities in web development.
+            </p>
+
             <a
-              href="https://github.com/koli0067"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-gray-500 hover:text-gray-900 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors"
-              aria-label="GitHub Profile"
+              href="#contact"
+              className="mt-7 inline-flex items-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700"
             >
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-              </svg>
+              <FaEnvelope />
+              Contact Me
             </a>
 
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/most-koli-khatun-50b804427/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-gray-500 hover:text-blue-600 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors"
-              aria-label="LinkedIn Profile"
-            >
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-              </svg>
-            </a>
-          </div>
+            <p className="mt-5 text-sm text-slate-500">
+              Have an idea? Let&apos;s build something great.
+            </p>
+          </motion.div>
         </div>
 
-        {/* Bottom Copyright Text */}
-        <div className="mt-8 pt-6 border-t border-gray-100 text-center text-xs text-gray-500">
-          © 2026 Koli Khatun. All rights reserved.
+        {/* Divider */}
+        <div className="h-px bg-slate-800" />
+
+        {/* Bottom Footer */}
+        <div className="flex flex-col items-center justify-between gap-5 py-7 text-center sm:flex-row sm:text-left">
+          <p className="text-sm leading-6 text-slate-400">
+            © {currentYear}{" "}
+            <span className="font-semibold text-white">Koli Khatun</span>.
+            All rights reserved.
+          </p>
+
+          <p className="flex flex-wrap items-center justify-center gap-2 text-sm text-slate-400">
+            Made with <FaHeart className="text-red-500" /> using{" "}
+            <span className="font-semibold text-blue-400">
+              Next.js & Tailwind CSS
+            </span>
+          </p>
+
+          <a
+            href="#home"
+            aria-label="Back to top"
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700 text-slate-300 transition-all duration-300 hover:border-blue-500 hover:bg-blue-600 hover:text-white"
+          >
+            <FaArrowUp />
+          </a>
         </div>
       </div>
     </footer>

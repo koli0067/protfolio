@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navItems = [
-  { name: "Home", href: "#" },
+  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
@@ -19,10 +19,10 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/95 text-white shadow-lg shadow-slate-950/10 backdrop-blur-xl">
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12"
+        className="max-w-7xl mx-auto flex h-[76px]  items-center justify-between px-5 sm:px-8 lg:px-12"
       >
         {/* Logo */}
         <Link
@@ -30,15 +30,16 @@ export default function Navbar() {
           onClick={closeMenu}
           className="group flex shrink-0 items-center gap-3"
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 text-xl font-bold text-white transition-colors group-hover:bg-blue-600">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-xl font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 group-hover:bg-blue-500 group-hover:shadow-blue-500/30">
             K
           </span>
 
           <span className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-slate-900">
+            <span className="text-lg font-bold tracking-tight text-white transition-colors group-hover:text-blue-400">
               Koli Khatun
             </span>
-            <span className="text-xs font-medium tracking-wide text-slate-500">
+
+            <span className="text-[11px] font-medium tracking-[0.15em] text-slate-400">
               FRONTEND DEVELOPER
             </span>
           </span>
@@ -50,7 +51,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-blue-600"
+              className="rounded-lg px-3.5 py-2.5 text-sm font-medium text-slate-300 transition-all duration-300 hover:bg-slate-800 hover:text-blue-400"
             >
               {item.name}
             </Link>
@@ -60,20 +61,25 @@ export default function Navbar() {
         {/* Contact Button */}
         <Link
           href="#contact"
-          className="hidden items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-blue-600 sm:inline-flex"
+          className="hidden items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-blue-500/30 sm:inline-flex"
         >
           Contact Me
-          <ArrowUpRight size={16} />
+          <ArrowUpRight
+            size={16}
+            className="transition-transform duration-300 group-hover:translate-x-0.5"
+          />
         </Link>
 
         {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+          }
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 transition hover:bg-slate-50 lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 bg-slate-900 text-slate-200 transition-all duration-300 hover:border-blue-500 hover:bg-blue-600 hover:text-white lg:hidden"
         >
           {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -83,15 +89,15 @@ export default function Navbar() {
       {isOpen && (
         <div
           id="mobile-navigation"
-          className="border-t border-slate-100 bg-white px-5 py-5 shadow-lg lg:hidden"
+          className="border-t border-slate-800 bg-slate-950 px-5 py-5 shadow-xl lg:hidden"
         >
-          <div className="mx-auto flex max-w-7xl flex-col gap-1">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={closeMenu}
-                className="rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-blue-600"
+                className="rounded-xl border border-transparent px-4 py-3 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-slate-800 hover:bg-slate-900 hover:text-blue-400"
               >
                 {item.name}
               </Link>
@@ -100,7 +106,7 @@ export default function Navbar() {
             <Link
               href="#contact"
               onClick={closeMenu}
-              className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white transition hover:bg-blue-600"
+              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3.5 font-semibold text-white transition-all duration-300 hover:bg-blue-500"
             >
               Contact Me
               <ArrowUpRight size={17} />
