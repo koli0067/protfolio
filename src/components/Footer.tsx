@@ -1,6 +1,6 @@
-
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -12,7 +12,11 @@ import {
 } from "react-icons/fa";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState<number>(2026);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   const links = [
     { label: "Home", href: "#home" },
@@ -46,7 +50,7 @@ export default function Footer() {
             </a>
 
             <p className="mt-5 max-w-sm text-base leading-8 text-slate-400">
-              Hi, I&apos;m Koli Khatun, a Frontend Developer passionate
+              Hi, I'm Koli Khatun, a Frontend Developer passionate
               about creating modern, responsive, and user-friendly web
               applications. My goal is to grow as a Full-Stack Developer
               and build meaningful digital experiences.
@@ -119,13 +123,13 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-xl font-bold sm:text-2xl">
-              Let&apos;s Work Together
+              Let's Work Together
             </h3>
 
             <div className="mt-4 h-1 w-14 rounded-full bg-blue-500" />
 
             <p className="mt-7 text-base leading-8 text-slate-400">
-              I&apos;m always interested in learning, collaborating, and
+              I'm always interested in learning, collaborating, and
               exploring new opportunities in web development.
             </p>
 
@@ -138,7 +142,7 @@ export default function Footer() {
             </a>
 
             <p className="mt-5 text-sm text-slate-500">
-              Have an idea? Let&apos;s build something great.
+              Have an idea? Let's build something great.
             </p>
           </motion.div>
         </div>
