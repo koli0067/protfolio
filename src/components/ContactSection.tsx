@@ -19,7 +19,7 @@ export default function ContactSection() {
     },
     {
       title: "Phone Number",
-      value: "Add your phone number",
+      value: "+8801779084963",
       href: "tel:+8801XXXXXXXXX",
       icon: FaPhone,
     },

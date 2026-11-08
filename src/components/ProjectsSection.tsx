@@ -22,21 +22,26 @@ const projects = [
     githubLink: "https://github.com/koli/bazardor",
     number: "01",
   },
-  {
-    title: "BookVibe",
-    subtitle: "Book Catalog & Wishlist",
-    description:
-      "A book discovery application for exploring books, organizing reading lists, and managing wishlist items through a simple interface.",
-    techStack: [
-      "Next.js",
-      "TypeScript",
-      "DaisyUI",
-      "React Toastify",
-    ],
-    liveLink: "https://book-vibe-five.vercel.app/",
-    githubLink: "https://github.com/koli/book-vibe",
-    number: "02",
-  },
+{
+  title: "StudioSpace",
+  subtitle: "Creative Studio Booking Platform",
+  description:
+    "A peer-to-peer creative studio booking platform where users can explore photography studios, view studio details, manage listings, and book creative spaces.",
+  techStack: [
+    "Next.js",
+    "React.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Better Auth",
+  ],
+  liveLink: "https://studiospace-client-weld.vercel.app/",
+  githubLink: "https://github.com/koli0067/Studio-space",
+  number: "02",
+},
   {
     title: "FitLog",
     subtitle: "Fitness Tracker",

@@ -67,7 +67,7 @@ const HeroSection = () => {
             </Link>
 
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/drive/folders/1uZmo4RDdQi96g7jO-mAqSqJR6Rfb0o2e?usp=drive_link"
               download="Koli-Khatun-Resume.pdf"
               className="group inline-flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-900/70 px-6 py-4 text-sm font-bold text-slate-200 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:bg-slate-800 hover:text-blue-300"
             >
@@ -83,7 +83,7 @@ const HeroSection = () => {
             </span>
 
             <a
-              href="https://github.com/KothaKoli"
+              href="https://github.com/koli0067"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"

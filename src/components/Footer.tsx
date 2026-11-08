@@ -58,7 +58,7 @@ export default function Footer() {
 
             <div className="mt-7 flex gap-4">
               <a
-                href="https://github.com/KothaKoli"
+                href="https://github.com/koli0067"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
